@@ -240,9 +240,7 @@ const ImageCarousel = () => {
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-black/50 z-10" />
 
-      <button onClick={prev} className="absolute left-0 top-0 w-1/3 h-full z-20 md:hidden" />
-      <button onClick={next} className="absolute right-0 top-0 w-1/3 h-full z-20 md:hidden" />
-
+      {/* Desktop navigation buttons */}
       <button onClick={prev} className="hidden md:flex absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100">
         <ChevronLeft className="w-6 h-6 text-gray-800" />
       </button>
@@ -250,13 +248,7 @@ const ImageCarousel = () => {
         <ChevronRight className="w-6 h-6 text-gray-800" />
       </button>
 
-      <div className="md:hidden absolute left-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-        <ChevronLeft className="w-8 h-8 text-white opacity-50" />
-      </div>
-      <div className="md:hidden absolute right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-        <ChevronRight className="w-8 h-8 text-white opacity-50" />
-      </div>
-
+      {/* Indicator dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
         {images.map((_, i) => (
           <button
