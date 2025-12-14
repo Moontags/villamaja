@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Anchor, Waves, Mail, Phone, MapPin, Users, Wind, Flame, Navigation, Menu, X, Check, Zap } from 'lucide-react';
 
@@ -195,27 +195,48 @@ const translations = {
 
 const ImageCarousel = () => {
   const images = [
-    '01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg',
-    '06.jpeg', '07.jpeg', '08.jpeg', '09.jpg', '10.jpeg',
-    '11.jpeg', '12.jpeg', '13.jpeg', '14.jpeg', '15.jpeg',
-    '16.jpeg', '17.jpeg', '18.jpeg', '19.jpeg', '20.jpeg',
+    '01.webp', '02.webp', '03.webp', '04.webp', '05.webp',
+    '06.webp', '07.webp', '08.webp', '09.webp', '10.webp',
+    '11.webp', '12.webp', '13.webp', '14.webp', '15.webp',
+    '16.webp', '17.webp', '18.webp', '19.webp', '20.webp',
   ];
 
   const [current, setCurrent] = useState(0);
   const totalImages = images.length;
 
+  const touchStartX = useRef<number | null>(null);
+
   const next = () => setCurrent((c) => (c + 1) % totalImages);
   const prev = () => setCurrent((c) => (c - 1 + totalImages) % totalImages);
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(deltaX) > 50) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      deltaX > 0 ? prev() : next();
+    }
+    touchStartX.current = null;
+  };
+
   return (
-    <div className="relative w-full h-full overflow-hidden group">
+    <div
+      className="relative w-full h-full overflow-hidden group"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <Image 
-        src={`/images/${images[current]}`}
+        src={`/images/webp/${images[current]}`}
         alt={`Villa Maja - Kuva ${current + 1}`}
         fill
         className="object-cover transition-all duration-700 ease-in-out"
         priority={current === 0}
-        quality={90}
+        quality={70}
+        sizes="(max-width: 1024px) 100vw, 75vw"
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-black/50 z-10" />
 
@@ -776,7 +797,7 @@ export default function VillaMajaWebsite() {
       <section id="about" className="relative pt-20 pb-32 px-4 bg-linear-to-b from-white via-blue-50 to-white section-smooth">
         {/* Subtle background image */}
         <Image
-          src="/images/07.jpeg"
+          src="/images/webp/07.webp"
           alt="Taustakuva – Villa Maja"
           fill
           className="object-cover absolute inset-0 opacity-20 pointer-events-none"
@@ -866,7 +887,7 @@ export default function VillaMajaWebsite() {
       {/* For Boaters Section */}
       <section className="relative py-32 px-4 overflow-hidden section-smooth">
         <Image 
-          src={`/images/IMG_0600.jpeg`}
+          src={`/images/webp/IMG_0600.webp`}
           alt="Veneilijöille"
           fill
           className="object-cover absolute inset-0"
@@ -901,7 +922,7 @@ export default function VillaMajaWebsite() {
       <section id="location" className="relative pt-20 pb-32 px-4 bg-linear-to-b from-white via-cyan-50 to-blue-50 section-smooth">
         {/* Subtle background image */}
         <Image
-          src="/images/05.jpeg"
+          src="/images/webp/05.webp"
           alt="Taustakuva – Sijainti"
           fill
           className="object-cover absolute inset-0 opacity-10 pointer-events-none"
@@ -957,11 +978,11 @@ export default function VillaMajaWebsite() {
       {/* Booking Section */}
       <section id="booking" className="relative pt-20 pb-32 px-4 overflow-hidden section-smooth">
         <Image 
-          src={`/images/IMG_2828.jpeg`}
-          alt="Villa Maja varaus"
+          src={`/images/webp/IMG_2828.webp`}
+          alt="Taustakuva – Varaus"
           fill
-          className="object-cover absolute inset-0 opacity-10"
-          quality={85}
+          className="object-cover absolute inset-0 opacity-15"
+          quality={70}
         />
         <div className="absolute inset-0 bg-white/95" />
         <div className="relative z-10 max-w-6xl mx-auto">
@@ -1005,7 +1026,7 @@ export default function VillaMajaWebsite() {
       {/* Contact Section */}
       <section id="contact" className="relative py-32 px-4 overflow-hidden section-smooth">
         <Image
-          src="/images/02.jpeg"
+          src="/images/webp/02.webp"
           alt="Taustakuva – Yhteystiedot"
           fill
           className="absolute inset-0 object-cover"
