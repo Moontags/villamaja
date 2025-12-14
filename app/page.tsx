@@ -248,13 +248,13 @@ const ImageCarousel = () => {
         <ChevronRight className="w-6 h-6 text-gray-800" />
       </button>
 
-      {/* Indicator dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+      {/* Indicator dots - Mobile optimized positioning */}
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-1.5 md:gap-2">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-2 rounded-full transition-all ${i === current ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/75'}`}
+            className={`rounded-full transition-all ${i === current ? 'w-6 h-2.5 md:w-8 md:h-2 bg-white' : 'w-2 h-2 md:w-2 md:h-2 bg-white/60 hover:bg-white/80'}`}
           />
         ))}
       </div>
@@ -773,7 +773,7 @@ export default function VillaMajaWebsite() {
                 text-white px-8 py-4 rounded-full text-lg font-semibold
                 shadow-xl hover:shadow-2xl transition-all hover:scale-105
 
-                absolute bottom-24 left-1/2 -translate-x-1/2
+                absolute bottom-32 left-1/2 -translate-x-1/2
                 md:static md:translate-x-0
               "
             >
