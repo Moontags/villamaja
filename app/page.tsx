@@ -257,18 +257,27 @@ const ImageCarousel = () => {
         alt={`Villa Maja - Kuva ${current + 1}`}
         fill
         className="object-cover transition-all duration-700 ease-in-out"
-        priority={current === 0}
-        quality={70}
+        priority={true}
+        loading="eager"
+        quality={85}
         sizes="(max-width: 1024px) 100vw, 75vw"
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-black/50 z-10" />
 
-      {/* Desktop navigation buttons */}
-      <button onClick={prev} className="hidden md:flex absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100">
-        <ChevronLeft className="w-6 h-6 text-gray-800" />
+      {/* Navigation buttons - Bottom positioned */}
+      <button 
+        onClick={prev} 
+        aria-label="Previous image"
+        className="absolute left-4 md:left-20 lg:left-32 bottom-16 md:bottom-20 z-30 bg-white/95 hover:bg-white active:bg-gray-100 p-3 md:p-4 rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 opacity-70 md:opacity-0 group-hover:opacity-100 hover:opacity-100"
+      >
+        <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-gray-800" />
       </button>
-      <button onClick={next} className="hidden md:flex absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100">
-        <ChevronRight className="w-6 h-6 text-gray-800" />
+      <button 
+        onClick={next} 
+        aria-label="Next image"
+        className="absolute right-4 md:right-20 lg:right-32 bottom-16 md:bottom-20 z-30 bg-white/95 hover:bg-white active:bg-gray-100 p-3 md:p-4 rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 opacity-70 md:opacity-0 group-hover:opacity-100 hover:opacity-100"
+      >
+        <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-gray-800" />
       </button>
 
       {/* Indicator dots - Mobile optimized positioning */}
