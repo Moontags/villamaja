@@ -230,10 +230,6 @@ const ImageCarousel = () => {
         isSwiping.current = true;
       }
     }
-
-    if (isSwiping.current) {
-      e.preventDefault();
-    }
   };
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -785,7 +781,7 @@ export default function VillaMajaWebsite() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative h-screen section-smooth">
+      <section id="home" className="relative section-smooth h-[80vh] md:h-screen min-h-[400px]">
         <ImageCarousel />
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
           <div className="text-center text-white px-4 max-w-4xl">
