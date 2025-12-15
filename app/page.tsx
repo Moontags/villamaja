@@ -653,7 +653,7 @@ ${formData.name}`;
               <button
                 onClick={handleSubmit}
                 disabled={!selectedStart || !selectedEnd || !formData.name || !formData.email || !formData.phone}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:text-gray-200 text-white px-6 py-3 rounded-lg font-bold text-lg transition-all "
+                className="flex-1 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:text-gray-200 disabled:from-gray-400 disabled:to-gray-400 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
               >
                 {t.book}
               </button>
@@ -1000,22 +1000,22 @@ export default function VillaMajaWebsite() {
         <div className="absolute inset-0 bg-white/95" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center text-gray-900 mb-12">
-            <h2 className="text-5xl font-bold mb-4 drop-shadow-lg">{t.booking.title}</h2>
-            <p className="text-xl mb-2 drop-shadow-lg">{t.booking.period}</p>
-            <p className="text-lg opacity-90 drop-shadow-md">{t.booking.description}</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{t.booking.title}</h2>
+            <p className="text-base md:text-xl mb-2 drop-shadow-lg px-2">{t.booking.period}</p>
+            <p className="text-sm md:text-lg opacity-90 drop-shadow-md px-2">{t.booking.description}</p>
             
-            <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl mx-auto px-2">
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <div className="text-sm opacity-80 mb-1">{t.booking.pricePerWeek}</div>
-                <div className="text-2xl font-bold">1 000 €</div>
+                <div className="text-xs md:text-sm opacity-80 mb-1">{t.booking.pricePerWeek}</div>
+                <div className="text-xl md:text-2xl font-bold">1 000 €</div>
               </div>
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <div className="text-sm opacity-80 mb-1">{t.booking.priceTwoWeeks}</div>
-                <div className="text-2xl font-bold">1 800 €</div>
+                <div className="text-xs md:text-sm opacity-80 mb-1">{t.booking.priceTwoWeeks}</div>
+                <div className="text-xl md:text-2xl font-bold">1 800 €</div>
               </div>
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <div className="text-sm opacity-80 mb-1">{t.booking.pricePerMonth}</div>
-                <div className="text-2xl font-bold">3 500 €</div>
+                <div className="text-xs md:text-sm opacity-80 mb-1">{t.booking.pricePerMonth}</div>
+                <div className="text-xl md:text-2xl font-bold">3 500 €</div>
               </div>
             </div>
             
@@ -1036,8 +1036,12 @@ export default function VillaMajaWebsite() {
         </div>
       </section>
 
+      
       {/* Contact Section */}
-      <section id="contact" className="relative py-32 px-4 overflow-hidden section-smooth">
+      <section 
+        id="contact" 
+        className="relative pt-20 pb-52 px-4 overflow-hidden section-smooth min-h-[70vh]"  
+      >
         <Image
           src="/images/webp/02.webp"
           alt="Taustakuva – Yhteystiedot"
@@ -1046,21 +1050,34 @@ export default function VillaMajaWebsite() {
           quality={70}
         />
         <div className="absolute inset-0 bg-black/30" />
+        
+        {/* Sisältökontti: Otsikko ja Kuvaus */}
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-4 text-white drop-shadow-lg animate-fade-in">{t.contact.title}</h2>
           <p className="text-xl text-white drop-shadow-lg mb-12 animate-fade-in">{t.contact.description}</p>
+        </div>
+        
+        {/* Kontaktikorttien kontti: Absolute-sijoittelu */}
+       
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center animate-fade-in max-w-xl mx-auto mt-96">
-            <div className="flex flex-col items-center gap-2 p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <Mail className="w-6 h-6 text-blue-400" />
-              <span className="font-semibold text-white">info@villamaja.fi</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <Phone className="w- h-6 text-blue-400" />
-              <span className="font-semibold text-white">040 2183270</span>
-            </div>
+      <div className="
+          absolute bottom-20 left-1/2 -translate-x-1/2 z-20 
+          grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center 
+          animate-fade-in max-w-xl w-full px-4
+        ">
+          {/* Kortti 1: Sähköposti */}
+          <div className="flex flex-col items-center gap-2 p-3 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <Mail className="w-6 h-6 text-blue-400" />
+            <span className="font-semibold text-white">info@villamaja.fi</span>
+          </div>
+          
+          {/* Kortti 2: Puhelin */}
+          <div className="flex flex-col items-center gap-2 p-3 sm:p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <Phone className="w- h-6 text-blue-400" />
+            <span className="font-semibold text-white">040 2183270</span>
           </div>
         </div>
+        
         {/* --- LISÄTTY Sumuinen Liuku (Fade Effect) --- */}
         <div className="absolute bottom-0 left-0 w-full h-18 z-20 bg-linear-to-t from-gray-900 to-transparent"></div>
       </section>
