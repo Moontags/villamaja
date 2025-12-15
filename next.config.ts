@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
-    qualities: [75, 90],
+    qualities: [70, 75, 85, 90],
   },
 };
 
