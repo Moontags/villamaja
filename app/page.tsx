@@ -1040,7 +1040,7 @@ export default function VillaMajaWebsite() {
       {/* Contact Section */}
       <section 
         id="contact" 
-        className="relative pt-20 pb-52 px-4 overflow-hidden section-smooth min-h-[70vh]"  
+        className="relative pt-20 pb-52 px-4 overflow-hidden section-smooth min-h-[90vh]"  
       >
         <Image
           src="/images/webp/02.webp"
@@ -1054,25 +1054,25 @@ export default function VillaMajaWebsite() {
         {/* Sisältökontti: Otsikko ja Kuvaus */}
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-4 text-white drop-shadow-lg animate-fade-in">{t.contact.title}</h2>
-          <p className="text-xl text-white drop-shadow-lg mb-12 animate-fade-in">{t.contact.description}</p>
+          <p className="text-xl text-white drop-shadow-lg mb-2 animate-fade-in">{t.contact.description}</p>
         </div>
         
         {/* Kontaktikorttien kontti: Absolute-sijoittelu */}
        
           
       <div className="
-          absolute bottom-20 left-1/2 -translate-x-1/2 z-20 
+          absolute bottom-10 left-1/2 -translate-x-1/2 z-20 
           grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center 
           animate-fade-in max-w-xl w-full px-4
         ">
           {/* Kortti 1: Sähköposti */}
-          <div className="flex flex-col items-center gap-2 p-3 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="flex flex-col items-center gap-2 p-3 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <Mail className="w-6 h-6 text-blue-400" />
             <span className="font-semibold text-white">info@villamaja.fi</span>
           </div>
           
           {/* Kortti 2: Puhelin */}
-          <div className="flex flex-col items-center gap-2 p-3 sm:p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="flex flex-col items-center gap-2 p-3 sm:p-5 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <Phone className="w- h-6 text-blue-400" />
             <span className="font-semibold text-white">040 2183270</span>
           </div>
