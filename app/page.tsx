@@ -781,7 +781,7 @@ export default function VillaMajaWebsite() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative section-smooth h-[80vh] md:h-screen min-h-[400px]">
+      <section id="home" className="relative section-smooth h-[80vh] md:h-screen min-h-96">
         <ImageCarousel />
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
           <div className="text-center text-white px-4 max-w-4xl">
@@ -796,7 +796,7 @@ export default function VillaMajaWebsite() {
                 text-white px-8 py-4 rounded-full text-lg font-semibold
                 shadow-xl hover:shadow-2xl transition-all hover:scale-105
 
-                absolute bottom-32 left-1/2 -translate-x-1/2
+                absolute bottom-26 left-1/2 -translate-x-1/2
                 md:static md:translate-x-0
               "
             >
