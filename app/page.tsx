@@ -252,16 +252,37 @@ const ImageCarousel = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Nykyinen kuva */}
       <Image 
         src={`/images/webp/${images[current]}`}
         alt={`Villa Maja - Kuva ${current + 1}`}
         fill
         className="object-cover transition-all duration-700 ease-in-out"
         priority={true}
-        loading="eager"
         quality={85}
         sizes="(max-width: 1024px) 100vw, 75vw"
       />
+      
+      {/* Esiladataan seuraava ja edellinen kuva paremman käyttökokemuksen saavuttamiseksi */}
+      <Image
+        src={`/images/webp/${images[(current + 1) % totalImages]}`}
+        alt="Preload next image"
+        width={1}
+        height={1}
+        className="hidden"
+        priority={false}
+        quality={85}
+      />
+      <Image
+        src={`/images/webp/${images[(current - 1 + totalImages) % totalImages]}`}
+        alt="Preload previous image"
+        width={1}
+        height={1}
+        className="hidden"
+        priority={false}
+        quality={85}
+      />
+
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-black/50 z-10" />
 
       {/* Navigation buttons - Bottom positioned */}
