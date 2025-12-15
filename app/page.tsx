@@ -762,14 +762,14 @@ export default function VillaMajaWebsite() {
         scrolled ? 'bg-white shadow-lg py-4' : 'bg-transparent py-6'
       }`}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-          <div className={`text-2xl font-bold transition-colors ${scrolled ? 'text-blue-600' : 'text-white'}`}>
+          <a
+            href="#home"
+            className={`text-2xl font-bold transition-colors ${scrolled ? 'text-blue-600' : 'text-white'}`}
+          >
             Villa Maja
-          </div>
+          </a>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className={`hover:opacity-75 transition-opacity ${scrolled ? 'text-gray-800' : 'text-white'}`}>
-              {t.nav.home}
-            </a>
             <a href="#about" className={`hover:opacity-75 transition-opacity ${scrolled ? 'text-gray-800' : 'text-white'}`}>
               {t.nav.about}
             </a>
@@ -797,7 +797,6 @@ export default function VillaMajaWebsite() {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-4">
-              <a href="#home" onClick={closeMobileMenu} className="text-gray-800 hover:text-blue-600 py-2">{t.nav.home}</a>
               <a href="#about" onClick={closeMobileMenu} className="text-gray-800 hover:text-blue-600 py-2">{t.nav.about}</a>
               <a href="#location" onClick={closeMobileMenu} className="text-gray-800 hover:text-blue-600 py-2">{t.nav.location}</a>
               <a href="#booking" onClick={closeMobileMenu} className="text-gray-800 hover:text-blue-600 py-2">{t.nav.booking}</a>
