@@ -22,7 +22,7 @@ const translations = {
     about: {
       title: 'Tervetuloa Villa Majaan',
       description: 'Villa Maja on viihtyisä mökkiparatiiisi Päijänteen kauniilla Säynätsalon saarella Kuhmoisten alueella. Täydellinen kesäkohde veneilijöille ja perheille, jotka etsivät rauhaa ja luonnonläheisyyttä.',
-      capacity: '8 henkilöä',
+      capacity: '4 + 2 henkilöä',
       accommodations: {
         title: 'Majoitustilat',
         saunaCottage: '2 yöymispaikkaa saunamökissä',
@@ -791,13 +791,11 @@ export default function VillaMajaWebsite() {
                       <a
               href="#booking"
               className="
+                hidden md:inline-block
                 pointer-events-auto
                 bg-white/10 hover:bg-white/25 backdrop-blur-sm
                 text-white px-8 py-4 rounded-full text-lg font-semibold
                 shadow-xl hover:shadow-2xl transition-all hover:scale-105
-
-                absolute bottom-26 left-1/2 -translate-x-1/2
-                md:static md:translate-x-0
               "
             >
               {t.hero.cta}
