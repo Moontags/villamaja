@@ -10,7 +10,7 @@ const translations = {
   fi: {
     nav: {
       home: 'Etusivu',
-      about: 'Tietoa',
+      about: 'Kohde',
       location: 'Sijainti',
       booking: 'Varaus',
       contact: 'Yhteystiedot'
@@ -102,7 +102,7 @@ const translations = {
   en: {
     nav: {
       home: 'Home',
-      about: 'About',
+      about: 'Destination',
       location: 'Location',
       booking: 'Booking',
       contact: 'Contact'
