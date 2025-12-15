@@ -205,28 +205,55 @@ const ImageCarousel = () => {
   const totalImages = images.length;
 
   const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const isSwiping = useRef(false);
 
   const next = () => setCurrent((c) => (c + 1) % totalImages);
   const prev = () => setCurrent((c) => (c - 1 + totalImages) % totalImages);
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    isSwiping.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+
+    const deltaX = e.touches[0].clientX - touchStartX.current;
+    const deltaY = e.touches[0].clientY - touchStartY.current;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    if (!isSwiping.current && (absDeltaX > 10 || absDeltaY > 10)) {
+      if (absDeltaX > absDeltaY * 1.5) {
+        isSwiping.current = true;
+      }
+    }
+
+    if (isSwiping.current) {
+      e.preventDefault();
+    }
   };
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     if (touchStartX.current === null) return;
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(deltaX) > 50) {
+    if (Math.abs(deltaX) > 70) {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       deltaX > 0 ? prev() : next();
     }
     touchStartX.current = null;
+    touchStartY.current = null;
+    isSwiping.current = false;
   };
 
   return (
     <div
       className="relative w-full h-full overflow-hidden group"
+      style={{ touchAction: 'pan-y' }}
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <Image 
