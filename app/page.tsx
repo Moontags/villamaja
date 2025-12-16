@@ -289,16 +289,16 @@ const ImageCarousel = () => {
       <button 
         onClick={prev} 
         aria-label="Previous image"
-        className="absolute left-12 md:left-20 lg:left-32 bottom-16 md:bottom-20 z-30 bg-white/10 hover:bg-white/25 backdrop-blur-sm p-2 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 opacity-70 md:opacity-0 group-hover:opacity-100 hover:opacity-100"
+        className="absolute left-12 md:left-20 lg:left-32 bottom-16 md:bottom-20 z-30 bg-white/10 hover:bg-white/25 backdrop-blur-sm p-2.5 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 opacity-70 md:opacity-0 group-hover:opacity-100 hover:opacity-100"
       >
-        <ChevronLeft className="w-5 h-5 md:w-7 md:h-7 text-white" />
+        <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-white" />
       </button>
       <button 
         onClick={next} 
         aria-label="Next image"
-        className="absolute right-12 md:right-20 lg:right-32 bottom-16 md:bottom-20 z-30 bg-white/10 hover:bg-white/25 backdrop-blur-sm p-2 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 opacity-70 md:opacity-0 group-hover:opacity-100 hover:opacity-100"
+        className="absolute right-12 md:right-20 lg:right-32 bottom-16 md:bottom-20 z-30 bg-white/10 hover:bg-white/25 backdrop-blur-sm p-2.5 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 opacity-70 md:opacity-0 group-hover:opacity-100 hover:opacity-100"
       >
-        <ChevronRight className="w-5 h-5 md:w-7 md:h-7 text-white" />
+        <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-white" />
       </button>
 
       {/* Indicator dots - Mobile optimized positioning */}
